@@ -3,7 +3,7 @@
     "id": 1,
     "funzione": "IMPIANTI_JIMBO",
     "attivo": true,
-    "immagine": "https://via.placeholder.com/100x150?text=Foto+Jimdo",
+    "immagine": "https://via.placeholder.com/150x200?text=Progetti+Jimbo",
     "link": "https://iltuttofaidate.jimdofree.com/",
     "descrizione": "Progetti Hi-Fi Car"
   },
@@ -11,42 +11,8 @@
     "id": 2,
     "funzione": "SHOP_MAGLIETTE",
     "attivo": true,
-    "immagine": "https://via.placeholder.com/100x150?text=Maglietta",
-    "link": "#",
+    "immagine": "https://via.placeholder.com/150x200?text=La+Mia+Maglietta",
+    "link": "https://www.amazon.it/l/B0DLYM6687",
     "descrizione": "La mia Maglietta"
-  },
-  {
-    "id": 3,
-    "funzione": "VUOTO_1",
-    "attivo": false,
-    "immagine": "",
-    "link": "",
-    "descrizione": "Spazio libero"
-  },
-  {
-    "id": 4,
-    "funzione": "VUOTO_2",
-    "attivo": false,
-    "immagine": "",
-    "link": "",
-    "descrizione": "Spazio libero"
-  },
-  {
-    "id": 5,
-    "funzione": "VUOTO_3",
-    "attivo": false,
-    "immagine": "",
-    "link": "",
-    "descrizione": "Spazio libero"
-  },
-  {
-    "id": 6,
-    "funzione": "VUOTO_4",
-    "attivo": false,
-    "immagine": "",
-    "link": "",
-    "descrizione": "Spazio libero"
   }
 ]
-
-
