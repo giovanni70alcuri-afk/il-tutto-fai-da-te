@@ -1,3 +1,11 @@
+// --- CONFIGURAZIONE BOT ---
+const botResponses = {
+    "ciao": "Ciao Angelo! Benvenuto nel tuo laboratorio digitale.",
+    "amazon": "Trovi i miei 38 libri cliccando sul carosello o visitando la mia pagina autore Amazon.",
+    "default": "Chiedimi pure dei miei 'libri' o di come 'contattarmi'."
+};
+
+// --- FUNZIONI DI UTILITÀ ---
 async function caricaDati(url) {
     try {
         const res = await fetch(url + '?v=' + new Date().getTime());
@@ -5,12 +13,37 @@ async function caricaDati(url) {
     } catch (e) { return null; }
 }
 
+// --- LOGICA DEL CHATBOT ---
+async function inviaMessaggio() {
+    const input = document.getElementById('user-input');
+    const chatBox = document.getElementById('chat-display');
+    if (!input || !chatBox || input.value.trim() === "") return;
+
+    const msg = input.value.toLowerCase();
+    chatBox.innerHTML += `<div><b>Tu:</b> ${input.value}</div>`;
+    input.value = "";
+
+    setTimeout(async () => {
+        let response = "";
+        if (msg.includes("contatt") || msg.includes("email")) {
+            const d = await caricaDati('contatti.json');
+            response = d?.configurazione_contatto?.destinatario_email ? 
+                       `Scrivimi a: ${d.configurazione_contatto.destinatario_email}` : 
+                       "Contattami sui social o via email!";
+        } else {
+            response = botResponses[msg] || botResponses["default"];
+        }
+        chatBox.innerHTML += `<div style="color:#cd2121;"><b>Bot:</b> ${response}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 500);
+}
+
+// --- INIZIALIZZAZIONE SITO (Sidebar e Libri) ---
 async function inizializzaSito() {
-    // --- LATO DESTRO (Maglietta, Jimbo, ecc.) ---
+    // 1. Sidebar Destra
     const datiDX = await caricaDati('sidebar.json');
     const contenitoreDX = document.getElementById('sidebar-sticky-container');
     if (datiDX && Array.isArray(datiDX) && contenitoreDX) {
-        // Mostra solo quelli dove hai messo "attivo": true
         contenitoreDX.innerHTML = datiDX
             .filter(item => item.attivo === true)
             .map(item => `
@@ -22,7 +55,7 @@ async function inizializzaSito() {
                 </div>`).join('');
     }
 
-    // --- CAROSELLO LIBRI (Sempre attivo) ---
+    // 2. Carosello Libri
     const datiLibri = await caricaDati('libri.json');
     const track = document.getElementById('track-libri');
     if (datiLibri && datiLibri.libri && track) {
@@ -35,33 +68,32 @@ async function inizializzaSito() {
     }
 }
 
-// Funzione per mostrare i Video
+// --- FUNZIONE CATEGORIE VIDEO ---
 async function mostraCategoria(slug) {
     const area = document.getElementById('prodotti-lista');
     const titolo = document.getElementById('titolo-sezione');
     if (!area) return;
 
-    area.innerHTML = "<p>Caricamento in corso...</p>";
+    area.innerHTML = "<p>Caricamento...</p>";
     const dati = await caricaDati(slug + '.json');
-    
     if (titolo) titolo.innerText = slug.toUpperCase().replace('_', ' ');
 
     if (!dati) {
-        area.innerHTML = "<p>Nessun contenuto trovato in " + slug + ".json</p>";
+        area.innerHTML = "<p>Nessun contenuto in " + slug + ".json</p>";
         return;
     }
 
-    // Cerca la lista dentro il file (si adatta a come lo hai scritto tu)
     const lista = Array.isArray(dati) ? dati : (dati[slug] || dati.video || dati.elenco_video || dati.archivio_progetti);
 
     if (lista) {
         area.innerHTML = lista.map(item => `
-            <div class="card-video" style="border:1px solid #003366; padding:20px; margin-bottom:20px; background:#fff; border-radius:10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                <h3>${item.titolo || item.prodotto}</h3>
+            <div class="card-progetto">
+                <h3>${item.titolo || item.prodotto || 'Progetto'}</h3>
                 <p>${item.descrizione || item.descrizione_breve || ''}</p>
-                <a href="${item.link || item.link_articolo || '#'}" target="_blank" style="color:#cd2121; font-weight:bold; text-decoration:none;">Apri Progetto →</a>
+                <a href="${item.link || item.url || '#'}" target="_blank" class="btn-link">Apri Progetto →</a>
             </div>`).join('');
     }
 }
 
+// Partenza al caricamento
 document.addEventListener('DOMContentLoaded', inizializzaSito);
