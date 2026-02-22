@@ -5,7 +5,7 @@ async function inizializzaSito() {
         const dati = await resLibri.json();
         const track = document.querySelector('.carosello-container');
         
-        if (dati.libri) {
+        if (dati.libri && track) {
             let htmlLibri = dati.libri.map(l => `
                 <div class="slide-item">
                     <a href="${l.link}" target="_blank">
@@ -18,21 +18,29 @@ async function inizializzaSito() {
         }
     } catch (e) { console.error("Errore Libri:", e); }
 
-    // 2. CARICA SIDEBAR DESTRA
+    // 2. CARICA SIDEBAR DESTRA (Slot Jimdo, Magliette, ecc.)
     try {
         const resSidebar = await fetch('sidebar.json');
         const datiSidebar = await resSidebar.json();
         const container = document.getElementById('sidebar-sticky-container');
-        if (container) {
+        
+        if (container && datiSidebar) {
             container.innerHTML = datiSidebar.map(r => {
+                // Se lo slot non è attivo (come i tuoi slot VUOTI), non disegnare nulla
                 if (!r.attivo) return '';
-                return `<a href="${r.link}" target="_blank" class="riquadro-custom"><img src="${r.immagine}" alt="${r.descrizione}"><span>${r.descrizione}</span></a>`;
+                
+                // Disegna il riquadro per Jimdo o Magliette
+                return `
+                    <a href="${r.link}" target="_blank" class="riquadro-custom">
+                        <img src="${r.immagine}" alt="${r.descrizione}">
+                        <span>${r.descrizione}</span>
+                    </a>`;
             }).join('');
         }
     } catch (e) { console.error("Errore Sidebar:", e); }
 }
 
-// Funzione per Aprire/Chiudere la Chat
+// Funzione per Aprire/Chiudere la Chat del Bot
 function toggleChat() {
     const chat = document.getElementById('bot-container');
     if (chat.style.display === 'none' || chat.style.display === '') {
@@ -42,4 +50,5 @@ function toggleChat() {
     }
 }
 
+// Avvia tutto al caricamento della pagina
 document.addEventListener('DOMContentLoaded', inizializzaSito);
