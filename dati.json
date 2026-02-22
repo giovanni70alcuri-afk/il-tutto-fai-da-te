@@ -1,0 +1,23 @@
+{
+  "prodotti": [
+    { 
+      "nome": "Trapano Avvitatore", 
+      "prezzo": "89,00 €", 
+      "img": "assets/prodotti/trapano.jpg", 
+      "link": "https://amzn.to/tuo-link-1" 
+    },
+    { 
+      "nome": "Set Morsetti", 
+      "prezzo": "25,00 €", 
+      "img": "assets/prodotti/morsetti.jpg", 
+      "link": "https://amzn.to/tuo-link-2" 
+    }
+  ],
+  "banner": [
+    { 
+      "img": "assets/banner/banner1.jpg", 
+      "link": "https://amzn.to/tuo-link-banner",
+      "testo": "Le Offerte del Mese"
+    }
+  ]
+}
