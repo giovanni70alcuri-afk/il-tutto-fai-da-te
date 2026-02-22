@@ -68,7 +68,7 @@ header { background: #003366; height: 80px; width: 100%; position: fixed; top: 0
 .riquadro-custom {
     display: block;
     background: white;
-    border: 2px solid #003366; /* Bordo blu come da progetto */
+    border: 2px solid #003366;
     border-radius: 8px;
     overflow: hidden;
     text-decoration: none;
@@ -96,11 +96,11 @@ header { background: #003366; height: 80px; width: 100%; position: fixed; top: 0
     background: #fff;
 }
 
-/* Carosello Infinite */
-.carosello-container { width: 100%; height: 150px; background: #111; overflow: hidden; border-bottom: 3px solid #ffcc00; position: relative; }
-.slider-track { display: flex; width: max-content; animation: scorri 40s linear infinite; }
-.slide-item { width: 120px; padding: 10px; flex-shrink: 0; }
-.slide-item img { height: 130px; border-radius: 5px; display: block; }
+/* Carosello Infinite - CORRETTO CON ALIGN-ITEMS */
+.carosello-container { width: 100%; height: 160px; background: #111; overflow: hidden; border-bottom: 3px solid #ffcc00; position: relative; display: flex; align-items: center; }
+.slider-track { display: flex; width: max-content; animation: scorri 40s linear infinite; align-items: center; }
+.slide-item { width: 120px; padding: 10px; flex-shrink: 0; display: flex; justify-content: center; }
+.slide-item img { height: 135px; border-radius: 5px; display: block; }
 
 @keyframes scorri { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
