@@ -7,54 +7,85 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Stile per il Box del Bot */
-        #bot-container {
+        /* Stile per il Pulsante Robottino */
+        #bot-launcher {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 300px;
+            width: 65px;
+            height: 65px;
+            background: #cd2121; /* Rosso coordinato col sito */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1001;
+            transition: transform 0.3s;
+            border: 2px solid white;
+        }
+        #bot-launcher:hover { transform: scale(1.1); }
+
+        /* Stile per il Box del Bot (Inizialmente nascosto) */
+        #bot-container {
+            position: fixed;
+            bottom: 95px; /* Sta sopra il robottino */
+            right: 20px;
+            width: 320px;
             background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             z-index: 1000;
             font-family: Arial, sans-serif;
-            display: flex;
+            display: none; /* NASCOSTO DI DEFAULT */
             flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #eee;
         }
         #bot-header {
-            background: #cd2121; /* Rosso tipo YouTube */
+            background: #cd2121;
             color: white;
-            padding: 10px;
-            border-radius: 10px 10px 0 0;
+            padding: 12px;
             font-weight: bold;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
         #chat-display {
-            height: 200px;
+            height: 300px;
             overflow-y: auto;
-            padding: 10px;
-            font-size: 0.9rem;
-            background: #fdfdfd;
+            padding: 15px;
+            font-size: 0.95rem;
+            background: #f9f9f9;
         }
         .chat-input-area {
             display: flex;
             border-top: 1px solid #eee;
-            padding: 5px;
+            padding: 10px;
+            background: white;
         }
         #user-input {
             flex-grow: 1;
-            border: none;
-            padding: 8px;
+            border: 1px solid #ddd;
+            padding: 10px;
             outline: none;
+            border-radius: 20px;
+            margin-right: 5px;
         }
         #send-btn {
-            background: none;
+            background: #cd2121;
             border: none;
-            color: #cd2121;
+            color: white;
             cursor: pointer;
-            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -70,7 +101,6 @@
                 <i class="fas fa-home"></i>
                 <span class="label-nav">Home</span>
             </a>
-
             <div class="nav-item-dropdown">
                 <a href="#" class="nav-icon video-btn">
                     <i class="fas fa-play-circle"></i>
@@ -84,23 +114,11 @@
                     <a href="#recensioni">Recensioni Attrezzi</a>
                 </div>
             </div>
-
-            <a href="#attrezzi" class="nav-icon">
-                <i class="fas fa-tools"></i>
-                <span class="label-nav">Attrezzi</span>
-            </a>
-            <a href="#consigli" class="nav-icon">
-                <i class="fas fa-lightbulb"></i>
-                <span class="label-nav">Consigli</span>
-            </a>
-            <a href="#materiale" class="nav-icon">
-                <i class="fas fa-box-open"></i>
-                <span class="label-nav">Materiale</span>
-            </a>
+            <a href="#attrezzi" class="nav-icon"><i class="fas fa-tools"></i> <span class="label-nav">Attrezzi</span></a>
+            <a href="#consigli" class="nav-icon"><i class="fas fa-lightbulb"></i> <span class="label-nav">Consigli</span></a>
+            <a href="#materiale" class="nav-icon"><i class="fas fa-box-open"></i> <span class="label-nav">Materiale</span></a>
         </div>
-
         <div class="separator"></div>
-
         <div class="social-section">
             <a href="https://www.youtube.com/@iltuttofaidate" target="_blank" class="nav-icon youtube"><i class="fab fa-youtube"></i></a>
             <a href="#" class="nav-icon facebook"><i class="fab fa-facebook-f"></i></a>
@@ -117,25 +135,40 @@
             <div id="prodotti-lista"></div>
             <div style="height: 500px;"></div>
         </section>
-
         <aside class="sidebar-right">
             <div id="sidebar-sticky-container" class="sidebar-sticky-container"></div>
         </aside>
     </main>
 
+    <div id="bot-launcher" onclick="toggleChat()">🤖</div>
+
     <div id="bot-container">
         <div id="bot-header">
-            <span>🤖 Assistente Fai Da Te</span>
+            <span>🤖 Assistente Robot</span>
+            <span style="cursor:pointer" onclick="toggleChat()">✖</span>
         </div>
         <div id="chat-display">
-            <p><strong>Bot:</strong> Ciao Angelo! Come posso aiutarti oggi nel laboratorio?</p>
+            <p><strong>Bot:</strong> Ciao Angelo! Come posso aiutarti oggi?</p>
         </div>
         <div class="chat-input-area">
-            <input type="text" id="user-input" placeholder="Chiedimi qualcosa...">
+            <input type="text" id="user-input" placeholder="Scrivi...">
             <button id="send-btn" onclick="inviaMessaggio()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
     <script src="js/script.js"></script>
-    <script src="bot/chat.js"></script> </body>
+    <script src="bot/chat.js"></script>
+
+    <script>
+        // Funzione per mostrare/nascondere la chat
+        function toggleChat() {
+            const botContainer = document.getElementById('bot-container');
+            if (botContainer.style.display === 'none' || botContainer.style.display === '') {
+                botContainer.style.display = 'flex';
+            } else {
+                botContainer.style.display = 'none';
+            }
+        }
+    </script>
+</body>
 </html>
