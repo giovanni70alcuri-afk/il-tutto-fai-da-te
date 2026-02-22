@@ -1,20 +1,14 @@
 {
-  "sezioni_legali": [
+  "copyright": "© 2026 Angelo Cacioppo - Il Laboratorio di Angelo",
+  "disclaimer_amazon": "In qualità di Affiliato Amazon, ricevo un guadagno per ciascun acquisto idoneo.",
+  "sezioni": [
     {
-      "titolo": "Proprietà Intellettuale e Copyright",
-      "contenuto": "Tutti i contenuti presenti sul sito, incluse le fotografie dei restauri, i testi dei libri e i video tutorial, sono di proprietà di Angelo Cacioppo. È vietata la riproduzione senza autorizzazione scritta."
+      "titolo": "Proprietà Intellettuale",
+      "testo": "Tutti i contenuti sono di proprietà di Angelo Cacioppo. Vietata la riproduzione."
     },
     {
-      "titolo": "Affiliazione Amazon",
-      "contenuto": "In qualità di Affiliato Amazon, ricevo un guadagno per ciascun acquisto idoneo. Questo significa che se acquisti un attrezzo o un prodotto tramite i link presenti su questo sito, Amazon mi riconoscerà una piccola percentuale sul prezzo di vendita, senza alcun costo aggiuntivo per te."
-    },
-    {
-      "titolo": "Libri e Merchandising (Amazon KDP/Merch)",
-      "contenuto": "I libri e le magliette presenti sul sito sono creati da Angelo Cacioppo e venduti tramite la piattaforma Amazon. Amazon si occupa della produzione e spedizione, mentre l'autore riceve una royalty per ogni copia o capo venduto."
-    },
-    {
-      "titolo": "Canale YouTube",
-      "contenuto": "Il canale ufficiale 'Il Laboratorio di Angelo' è in fase di allestimento. I video caricati saranno protetti da licenza YouTube standard."
+      "titolo": "Libri e Merchandising",
+      "testo": "Venduti tramite Amazon KDP/Merch. L'autore riceve una royalty per ogni vendita."
     }
   ]
 }
