@@ -1,47 +1,44 @@
 async function inizializzaSito() {
-    // 1. CARICAMENTO LIBRI NEL CAROSELLO
+    // 1. CARICA LIBRI NEL CAROSELLO
     try {
         const resLibri = await fetch('libri.json');
         const dati = await resLibri.json();
-        
-        // Accediamo alla proprietà "libri" del file JSON
-        const listaLibri = dati.libri; 
-        
         const track = document.querySelector('.carosello-container');
-        if (track && listaLibri) {
-            let htmlLibri = listaLibri.map(l => `
+        
+        if (dati.libri) {
+            let htmlLibri = dati.libri.map(l => `
                 <div class="slide-item">
                     <a href="${l.link}" target="_blank">
                         <img src="${l.immagine}" alt="${l.titolo}">
                     </a>
                 </div>
             `).join('');
-            
-            // Creiamo l'effetto scorrimento infinito raddoppiando gli elementi
+            // Raddoppio per scorrimento infinito
             track.innerHTML = `<div class="slider-track">${htmlLibri + htmlLibri}</div>`;
         }
-    } catch (e) { 
-        console.error("Errore nel caricamento libri.json: ", e); 
-    }
+    } catch (e) { console.error("Errore Libri:", e); }
 
-    // 2. SIDEBAR DESTRA (PRODOTTI/BANNER)
+    // 2. CARICA SIDEBAR DESTRA
     try {
         const resSidebar = await fetch('sidebar.json');
         const datiSidebar = await resSidebar.json();
         const container = document.getElementById('sidebar-sticky-container');
-        
-        if (container && datiSidebar) {
+        if (container) {
             container.innerHTML = datiSidebar.map(r => {
                 if (!r.attivo) return '';
-                return `
-                    <a href="${r.link}" target="_blank" class="riquadro-custom">
-                        <img src="${r.immagine}" alt="${r.descrizione}">
-                        <span>${r.descrizione}</span>
-                    </a>`;
+                return `<a href="${r.link}" target="_blank" class="riquadro-custom"><img src="${r.immagine}" alt="${r.descrizione}"><span>${r.descrizione}</span></a>`;
             }).join('');
         }
-    } catch (e) { 
-        console.error("Errore nel caricamento sidebar.json: ", e); 
+    } catch (e) { console.error("Errore Sidebar:", e); }
+}
+
+// Funzione per Aprire/Chiudere la Chat
+function toggleChat() {
+    const chat = document.getElementById('bot-container');
+    if (chat.style.display === 'none' || chat.style.display === '') {
+        chat.style.display = 'flex';
+    } else {
+        chat.style.display = 'none';
     }
 }
 
