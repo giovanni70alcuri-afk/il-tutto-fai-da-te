@@ -3,20 +3,14 @@
     {
       "id": "prog_001",
       "titolo": "Restauro Radio d'Epoca - Modello XYZ",
-      "sito_origine": "Blogger",
-      "link": "https://tuoblog.blogspot.com/articolo-radio",
-      "immagine": "https://picsum.photos/400/300?random=1",
-      "descrizione": "Recupero totale di una radio anni '50 trovata in soffitta.",
-      "categoria": "Restauro"
+      "link": "https://iltuttofaidate.jimdofree.com/",
+      "descrizione": "Recupero totale di una radio anni '50 trovata in soffitta. Foto e schema elettrico."
     },
     {
       "id": "prog_002",
       "titolo": "Costruzione Mobile Laboratorio",
-      "sito_origine": "Sito Vecchio",
-      "link": "https://vecchiosito.it/progetto-mobile",
-      "immagine": "https://picsum.photos/400/300?random=2",
-      "descrizione": "Progetto di falegnameria per organizzare gli attrezzi.",
-      "categoria": "Fai da te"
+      "link": "https://iltuttofaidate.jimdofree.com/",
+      "descrizione": "Progetto di falegnameria per organizzare gli attrezzi in modo professionale."
     }
   ]
 }
