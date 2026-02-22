@@ -1,0 +1,34 @@
+{
+  "video": [
+    {
+      "titolo": "Esempio Video Hi-Fi",
+      "categoria": "hifi",
+      "url": "https://www.youtube.com/embed/ID_VIDEO",
+      "descrizione": "Inserisci qui la descrizione di cosa fai in questo video Hi-Fi."
+    },
+    {
+      "titolo": "Esempio Video Fai da Te",
+      "categoria": "faidate",
+      "url": "https://www.youtube.com/embed/ID_VIDEO",
+      "descrizione": "Descrizione per il progetto Fai da Te."
+    },
+    {
+      "titolo": "Esempio Video Elettronica",
+      "categoria": "elettronica",
+      "url": "https://www.youtube.com/embed/ID_VIDEO",
+      "descrizione": "Spiegazione della riparazione elettronica."
+    },
+    {
+      "titolo": "Esempio Video Restauro",
+      "categoria": "restauro",
+      "url": "https://www.youtube.com/embed/ID_VIDEO",
+      "descrizione": "Dettagli sul restauro effettuato."
+    },
+    {
+      "titolo": "Esempio Recensione",
+      "categoria": "recensioni",
+      "url": "https://www.youtube.com/embed/ID_VIDEO",
+      "descrizione": "Recensione tecnica dell'attrezzo provato."
+    }
+  ]
+}

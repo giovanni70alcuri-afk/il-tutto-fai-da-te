@@ -1,0 +1,13 @@
+{
+  "restauro": [
+    {
+      "id": "res_001",
+      "titolo": "Restauro Radio a Valvole anni '40",
+      "sorgente": "Blogger",
+      "link_articolo": "LINK_AL_TUO_POST",
+      "link_foto": "LINK_FOTO_DEPOSITO",
+      "descrizione": "Pulizia telaio, sostituzione condensatori e lucidatura mobile.",
+      "tempo_impiegato": "15 ore"
+    }
+  ]
+}

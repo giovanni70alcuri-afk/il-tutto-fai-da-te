@@ -1,0 +1,13 @@
+{
+  "elettronica": [
+    {
+      "id": "ele_001",
+      "titolo": "Riparazione Amplificatore Hi-Fi",
+      "sorgente": "Blogger",
+      "link_articolo": "LINK_AL_TUO_POST",
+      "link_foto": "LINK_FOTO_DEPOSITO",
+      "descrizione": "Ricerca guasto e sostituzione finali di potenza.",
+      "difficolta": "Media"
+    }
+  ]
+}

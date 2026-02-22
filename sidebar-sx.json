@@ -1,0 +1,35 @@
+{
+  "menu_laterale": [
+    {
+      "voce": "🏠 Home",
+      "link": "index.html",
+      "sottovoci": []
+    },
+    {
+      "voce": "🎬 Video Tutorial",
+      "link": "#",
+      "sottovoci": [
+        { "nome": "Video Hi-Fi", "slug": "hifi" },
+        { "nome": "Video Fai da Te", "slug": "faidate" },
+        { "nome": "Video Elettronica", "slug": "elettronica" },
+        { "nome": "Restauro", "slug": "restauro" },
+        { "nome": "Recensioni Attrezzi", "slug": "recensioni" }
+      ]
+    },
+    {
+      "voce": "📚 I Miei Libri",
+      "link": "https://www.amazon.it/l/B0DLYM6687",
+      "sottovoci": []
+    },
+    {
+      "voce": "🛠️ Attrezzatura",
+      "link": "#attrezzatura",
+      "sottovoci": []
+    },
+    {
+      "voce": "📩 Contatti",
+      "link": "#contatti",
+      "sottovoci": []
+    }
+  ]
+}

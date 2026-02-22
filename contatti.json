@@ -1,0 +1,12 @@
+{
+  "configurazione_contatto": {
+    "destinatario_email": "la-tua-email@gmail.com",
+    "oggetto_predefinito": "Richiesta dal Sito: Il Laboratorio di Angelo",
+    "testo_fissato": "Ciao Angelo, ti scrivo dal tuo sito web per..."
+  },
+  "opzioni_modulo": {
+    "servizio": "Formspree",
+    "formspree_url": "https://formspree.io/f/tuo_codice_qui",
+    "nota": "Questo servizio trasforma il modulo del sito in una vera email nella tua posta in arrivo."
+  }
+}
