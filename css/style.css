@@ -6,14 +6,13 @@ body { font-family: 'Segoe UI', sans-serif; background: #f0f0f0; padding-top: 80
 header { background: #003366; height: 80px; width: 100%; position: fixed; top: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
 .logo-centrale { color: #ffcc00; font-size: 2.2rem; font-weight: 900; letter-spacing: 2px; }
 
-/* SIDEBAR SINISTRA DINAMICA */
+/* SIDEBAR SINISTRA */
 .sidebar-left {
     position: fixed; left: 0; top: 80px; bottom: 0;
     width: 60px; background: #1a1a1a;
     display: flex; flex-direction: column; align-items: center;
     padding-top: 20px; z-index: 2000; transition: 0.3s;
 }
-
 .nav-icon {
     width: 50px; height: 50px; color: white;
     display: flex; align-items: center; justify-content: center;
@@ -21,10 +20,7 @@ header { background: #003366; height: 80px; width: 100%; position: fixed; top: 0
     position: relative; transition: 0.3s; margin-bottom: 10px;
     border-radius: 8px;
 }
-
 .nav-icon:hover { background: #333; color: #ffcc00; }
-
-/* Etichette Menu */
 .label-nav {
     position: absolute; left: 60px; background: #333; color: white;
     padding: 0 15px; height: 40px; line-height: 40px;
@@ -33,32 +29,17 @@ header { background: #003366; height: 80px; width: 100%; position: fixed; top: 0
 }
 .nav-icon:hover .label-nav { opacity: 1; visibility: visible; left: 65px; }
 
-/* Dropdown Video */
+/* Dropdown */
 .nav-item-dropdown { position: relative; }
 .dropdown-content {
     position: absolute; left: 60px; top: 0;
     background: #222; min-width: 200px;
     border-radius: 0 10px 10px 0; display: none;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
-    padding: 10px 0;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5); padding: 10px 0;
 }
-.dropdown-content a {
-    color: white; padding: 12px 20px; text-decoration: none;
-    display: block; font-size: 0.9rem; transition: 0.2s;
-}
-.dropdown-content a:hover { background: #ffcc00; color: #000; }
 .nav-item-dropdown:hover .dropdown-content { display: block; }
-
-/* Separatore */
-.separator { width: 30px; height: 2px; background: #444; margin: 15px 0; }
-
-/* Colori Social */
-.youtube:hover { color: #FF0000; }
-.facebook:hover { color: #3b5998; }
-.shop:hover { color: #ffcc00; }
-
-/* Slot Vuoti (Nascosti o diversi) */
-.empty-slot { color: #666 !important; font-style: italic; }
+.dropdown-content a { color: white; padding: 12px 20px; text-decoration: none; display: block; font-size: 0.9rem; }
+.dropdown-content a:hover { background: #ffcc00; color: #000; }
 
 /* Layout */
 .main-layout { display: flex; justify-content: space-between; padding: 20px 20px 20px 80px; }
@@ -66,15 +47,37 @@ header { background: #003366; height: 80px; width: 100%; position: fixed; top: 0
 .sidebar-right { width: 120px; }
 .sidebar-sticky-container { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 15px; }
 
-/* Riquadri Destra */
-.riquadro-custom { width: 100px; height: 150px; background: white; border: 2px solid #003366; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; transition: 0.3s; }
-.riquadro-custom:hover { transform: scale(1.05); }
-.riquadro-custom img { width: 100%; height: 110px; object-fit: cover; }
-.riquadro-custom span { font-size: 10px; color: #333; text-align: center; padding: 5px; }
+/* Carosello Infinite */
+.carosello-container { width: 100%; height: 150px; background: #111; overflow: hidden; border-bottom: 3px solid #ffcc00; position: relative; }
+.slider-track { display: flex; width: max-content; animation: scorri 40s linear infinite; }
+.slide-item { width: 120px; padding: 10px; flex-shrink: 0; }
+.slide-item img { height: 130px; border-radius: 5px; display: block; }
 
-/* Carosello */
-.carosello-container { width: 100%; height: 150px; background: #111; overflow: hidden; border-bottom: 3px solid #ffcc00; }
-.slider-track { display: flex; width: fit-content; animation: scorri 40s linear infinite; }
-.slide-item { width: 120px; padding: 10px; }
-.slide-item img { height: 130px; border-radius: 5px; }
 @keyframes scorri { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* BOT ROBOTTINO */
+#bot-launcher {
+    position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
+    background: #cd2121; color: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; cursor: pointer; z-index: 3001;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid white; transition: 0.3s;
+}
+#bot-launcher:hover { transform: scale(1.1); }
+
+#bot-container {
+    position: fixed; bottom: 90px; right: 20px; width: 300px;
+    background: white; border-radius: 10px; display: none; /* Nascosto */
+    flex-direction: column; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 3000; overflow: hidden;
+}
+#bot-header { background: #cd2121; color: white; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; }
+#chat-display { height: 250px; overflow-y: auto; padding: 10px; font-size: 0.9rem; }
+.chat-input-area { display: flex; border-top: 1px solid #eee; }
+#user-input { flex: 1; border: none; padding: 10px; outline: none; }
+#send-btn { background: white; border: none; color: #cd2121; padding: 10px; cursor: pointer; }
+
+/* Social */
+.separator { width: 30px; height: 2px; background: #444; margin: 15px 0; }
+.youtube:hover { color: #FF0000; }
+.facebook:hover { color: #3b5998; }
+.shop:hover { color: #ffcc00; }
