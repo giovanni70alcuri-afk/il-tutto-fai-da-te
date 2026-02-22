@@ -32,66 +32,29 @@
                     <a href="#" onclick="mostraCategoria('deposito_progetti')">Deposito Progetti</a>
                 </div>
             </div>
-
-            <a href="#attrezzi" class="nav-icon">
-                <i class="fas fa-tools"></i>
-                <span class="label-nav">Attrezzi</span>
-            </a>
-            <a href="#consigli" class="nav-icon">
-                <i class="fas fa-lightbulb"></i>
-                <span class="label-nav">Consigli</span>
-            </a>
-            <a href="#materiale" class="nav-icon">
-                <i class="fas fa-box-open"></i>
-                <span class="label-nav">Materiale</span>
-            </a>
-        </div>
-
-        <div class="separator"></div>
-
-        <div class="social-section" id="social-links">
-            <a href="https://www.youtube.com/@iltuttofaidate" target="_blank" class="nav-icon youtube"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="nav-icon facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#shop" class="nav-icon shop"><i class="fas fa-shopping-cart"></i></a>
         </div>
     </nav>
 
     <div class="carosello-container">
-        <div class="slider-track" id="track-libri"></div>
+        <div class="slider-track" id="track-libri">
+            </div>
     </div>
 
     <main class="main-layout">
         <section class="content-left">
             <h1 id="titolo-sezione">Benvenuti nel Laboratorio</h1>
-            <p id="descrizione-sezione">Usa il menu a sinistra per esplorare i video e le guide tecniche.</p>
-            <div id="prodotti-lista"></div>
-            <div style="height: 500px;"></div>
+            <div id="prodotti-lista">
+                </div>
         </section>
 
         <aside class="sidebar-right">
-            <div id="sidebar-sticky-container"></div>
+            <div id="sidebar-sticky-container">
+                </div>
         </aside>
     </main>
 
-    <footer id="footer-sito" style="padding: 20px; text-align: center; font-size: 0.8rem; color: #666;"></footer>
-
-    <div id="bot-launcher" onclick="toggleChat()">🤖</div>
-
-    <div id="bot-container">
-        <div id="bot-header">
-            <span>🤖 Assistente Fai Da Te</span>
-            <span style="cursor:pointer" onclick="toggleChat()">✖</span>
-        </div>
-        <div id="chat-display">
-            <p><strong>Bot:</strong> Ciao Angelo! Come posso aiutarti oggi nel laboratorio?</p>
-        </div>
-        <div class="chat-input-area">
-            <input type="text" id="user-input" placeholder="Chiedimi qualcosa...">
-            <button id="send-btn" onclick="inviaMessaggio()"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
+    <footer id="footer-sito"></footer>
 
     <script src="js/script.js"></script>
-    <script src="bot/chat.js"></script> 
 </body>
 </html>
