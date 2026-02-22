@@ -1,194 +1,42 @@
 {
   "libri": [
-    {
-      "titolo": "Il Mistero della Villa Abbandonata: La Villa Dei Sospiri",
-      "link": "https://www.amazon.it/dp/B0DLGQ9NX9",
-      "immagine": "https://m.media-amazon.com/images/I/71rXmqLn1UL._SY342_.jpg"
-    },
-    {
-      "titolo": "I Viaggiatori del Tempo: L'Ombra del Passato",
-      "link": "https://www.amazon.it/dp/B0DZSTRDTV",
-      "immagine": "https://m.media-amazon.com/images/I/41vD96p+94L._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "I Viaggiatori del Tempo: La Guerra dei Secoli",
-      "link": "https://www.amazon.it/dp/B0DXKRLRV3",
-      "immagine": "https://m.media-amazon.com/images/I/51ffTfj5pAL._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "I Viaggiatori del Tempo: La Clessidra di Cristallo",
-      "link": "https://www.amazon.it/dp/B0DXBW96FB",
-      "immagine": "https://m.media-amazon.com/images/I/51ZHsg1bXIL._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "I Viaggiatori del Tempo: La Porta di Ferro",
-      "link": "https://www.amazon.it/dp/B0DXBKFTM7",
-      "immagine": "https://m.media-amazon.com/images/I/51B6D6Ynr9L._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "I Viaggiatori del Tempo: La Missione Impossibile",
-      "link": "https://www.amazon.it/dp/B0DW3JSG7K",
-      "immagine": "https://m.media-amazon.com/images/I/51HNlEqOxsL._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "Il Mistero della Villa: La Chiave del Destino",
-      "link": "https://www.amazon.it/dp/B0DX237RNZ",
-      "immagine": "https://m.media-amazon.com/images/I/41tUfgIvHwL._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "Il Mistero della Villa: Ombre nel Giardino",
-      "link": "https://www.amazon.it/dp/B0DV8X37YX",
-      "immagine": "https://m.media-amazon.com/images/I/51p9-Ogm6qL._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "Il Tesoro Perduto: La Maledizione della Statua d'Oro",
-      "link": "https://www.amazon.it/dp/B0DTP9Y96W",
-      "immagine": "https://m.media-amazon.com/images/I/81ZnVQ67RAL._SY342_.jpg"
-    },
-    {
-      "titolo": "L'Amore Perduto",
-      "link": "https://www.amazon.it/dp/B0DTTB1ZW9",
-      "immagine": "https://m.media-amazon.com/images/I/41aMWTh0xkL._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "L'Angelo Decaduto",
-      "link": "https://www.amazon.it/dp/B0DTJYLS1R",
-      "immagine": "https://m.media-amazon.com/images/I/41TyVPxU4oL._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "Luce di un Nuovo Giorno",
-      "link": "https://www.amazon.it/dp/B0DTJ3QCPQ",
-      "immagine": "https://m.media-amazon.com/images/I/71Kcupnx1eL._SY342_.jpg"
-    },
-    {
-      "titolo": "La Rapina Perfetta",
-      "link": "https://www.amazon.it/dp/B0DT9QN6BZ",
-      "immagine": "https://m.media-amazon.com/images/I/41K4mnDZ24L._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "Il Mistero della Villa: Il Risveglio",
-      "link": "https://www.amazon.it/dp/B0DTF7QGRH",
-      "immagine": "https://m.media-amazon.com/images/I/41LZcNWwj0L._SY445_SX342_ML2_.jpg"
-    },
-    {
-      "titolo": "Le Onde del Tempo",
-      "link": "https://www.amazon.it/dp/B0DRH2R7HM",
-      "immagine": "https://m.media-amazon.com/images/I/711FzR7D1RL._SY342_.jpg"
-    },
-    {
-      "titolo": "Oltre il Confine",
-      "link": "https://www.amazon.it/dp/B0DRP9C488",
-      "immagine": "https://m.media-amazon.com/images/I/71Xoe424zdL._SY342_.jpg"
-    },
-    {
-      "titolo": "Verso un Futuro Giusto",
-      "link": "https://www.amazon.it/dp/B0DS9PBJSN",
-      "immagine": "https://m.media-amazon.com/images/I/81ttXXBYjpL._SY342_.jpg"
-    },
-    {
-      "titolo": "Ombre di Metallo: La Rivolta contro Entryu",
-      "link": "https://www.amazon.it/dp/B0DS8WNTC8",
-      "immagine": "https://m.media-amazon.com/images/I/8122O3YhkgL._SY342_.jpg"
-    },
-    {
-      "titolo": "Voci di Cambiamento",
-      "link": "https://www.amazon.it/dp/B0DS8JBTB3",
-      "immagine": "https://m.media-amazon.com/images/I/51iK2jhHnfL._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "L'Uomo Senza Passato",
-      "link": "https://www.amazon.it/dp/B0DS632HDC",
-      "immagine": "https://m.media-amazon.com/images/I/41UEVbqgaKL._SY445_SX342_QL70_ML2_.jpg"
-    },
-    {
-      "titolo": "L'Ultima Foglia",
-      "link": "https://www.amazon.it/dp/B0DRPN35QH",
-      "immagine": "https://m.media-amazon.com/images/I/71WADsevdEL._SY342_.jpg"
-    },
-    {
-      "titolo": "Oltre il Velo del Tempo: la Quarta Dimensione",
-      "link": "https://www.amazon.it/dp/B0DRRP7GCY",
-      "immagine": "https://m.media-amazon.com/images/I/71aMoyhjkNL._SY342_.jpg"
-    },
-    {
-      "titolo": "L’Estate dei Sogni Perduti: Giulia e Marco",
-      "link": "https://www.amazon.it/dp/B0DRYJFMKJ",
-      "immagine": "https://m.media-amazon.com/images/I/61IHJZPQMfL._SY385_.jpg"
-    },
-    {
-      "titolo": "Ombre di un Futuro Lontano",
-      "link": "https://www.amazon.it/dp/B0DRFR4LL9",
-      "immagine": "https://m.media-amazon.com/images/I/61bbaiEs3jL._SY342_.jpg"
-    },
-    {
-      "titolo": "Il Mistero della Villa: i sussuri del passato",
-      "link": "https://www.amazon.it/dp/B0DR71FS5F",
-      "immagine": "https://m.media-amazon.com/images/I/717A0kzooML._SY342_.jpg"
-    },
-    {
-      "titolo": "Il Mistero della Villa: Una Villa Antica",
-      "link": "https://www.amazon.it/dp/B0DR6YW3NR",
-      "immagine": "https://m.media-amazon.com/images/I/71Njo3Q5bdL._SY342_.jpg"
-    },
-    {
-      "titolo": "Storie di Cuore: Viaggio di una Famiglia tra Italia e Svizzera",
-      "link": "https://www.amazon.it/dp/B0DR5PGKPP",
-      "immagine": "https://m.media-amazon.com/images/I/61aN9dBoS1L._SY342_.jpg"
-    },
-    {
-      "titolo": "Il Bar di Rosy: Rosy",
-      "link": "https://www.amazon.it/dp/B0DQY55F8B",
-      "immagine": "https://m.media-amazon.com/images/I/71bVxk03PZL._SY342_.jpg"
-    },
-    {
-      "titolo": "La Luce di Aron: un cucciolo di mare mano abbandonato",
-      "link": "https://www.amazon.it/dp/B0DQXMM7C4",
-      "immagine": "https://m.media-amazon.com/images/I/61p67XKx+qL._SY342_.jpg"
-    },
-    {
-      "titolo": "Vendetta di un Uomo: Black Angel: Il cane Max La GTR E46 M3",
-      "link": "https://www.amazon.it/dp/B0DQWMQ8JR",
-      "immagine": "https://m.media-amazon.com/images/I/613q5MnctDL._SY342_.jpg"
-    },
-    {
-      "titolo": "Il Tessitore di Destini: La Vita di Alex",
-      "link": "https://www.amazon.it/dp/B0DQL3QC29",
-      "immagine": "https://m.media-amazon.com/images/I/71eMGyYh+VL._SY342_.jpg"
-    },
-    {
-      "titolo": "Nella Magia del Natale: Storie di Rispetto è Uguaglianza",
-      "link": "https://www.amazon.it/dp/B0DQKCFZFX",
-      "immagine": "https://m.media-amazon.com/images/I/71AEeQ6Xu3L._SY342_.jpg"
-    },
-    {
-      "titolo": "Python Le Basi per Iniziare: Il Linguaggio per Tutti",
-      "link": "https://www.amazon.it/dp/B0DQC37ZTW",
-      "immagine": "https://m.media-amazon.com/images/I/611MT-Qi-YL._SY342_.jpg"
-    },
-    {
-      "titolo": "COLORA GIOCANDO: Il Segreto dei Animali, Il Mondo dei Numeri e La Magia delle Forme",
-      "link": "https://www.amazon.it/dp/B0DLNNTBJK",
-      "immagine": "https://m.media-amazon.com/images/I/71C81uztKkL._SY342_.jpg"
-    },
-    {
-      "titolo": "Quaderno Pentagrammato: Quaderno Pentagrammato con 120 Pagine",
-      "link": "https://www.amazon.it/dp/B0DKJPH31G",
-      "immagine": "https://m.media-amazon.com/images/I/7125oTcJYXL._SY342_.jpg"
-    },
-    {
-      "titolo": "IL MOMENTO DEI RICORDI: scuola secondaria di primo grado",
-      "link": "https://www.amazon.it/dp/B0DKJJHF3M",
-      "immagine": "https://m.media-amazon.com/images/I/71n-F4Xb-FL._SY342_.jpg"
-    },
-    {
-      "titolo": "Quaderno Pentagrammato: Quaderno Grande A4",
-      "link": "https://www.amazon.it/dp/B0DJGHMYQ5",
-      "immagine": "https://m.media-amazon.com/images/I/71S10zgmmOL._SY342_.jpg"
-    },
-    {
-      "titolo": "STORIE DI DINOSAURI: Storie per bambini",
-      "link": "https://www.amazon.it/dp/B0DJ5ZL28T",
-      "immagine": "https://m.media-amazon.com/images/I/71rXTcDO+5L._SY342_.jpg"
-    }
+    { "titolo": "Il Mistero della Villa Abbandonata: La Villa Dei Sospiri", "link": "https://www.amazon.it/dp/B0DLGQ9NX9", "immagine": "https://m.media-amazon.com/images/I/71rXmqLn1UL._SY342_.jpg" },
+    { "titolo": "I Viaggiatori del Tempo: L'Ombra del Passato", "link": "https://www.amazon.it/dp/B0DZSTRDTV", "immagine": "https://m.media-amazon.com/images/I/41vD96p+94L._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "I Viaggiatori del Tempo: La Guerra dei Secoli", "link": "https://www.amazon.it/dp/B0DXKRLRV3", "immagine": "https://m.media-amazon.com/images/I/51ffTfj5pAL._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "I Viaggiatori del Tempo: La Clessidra di Cristallo", "link": "https://www.amazon.it/dp/B0DXBW96FB", "immagine": "https://m.media-amazon.com/images/I/51ZHsg1bXIL._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "I Viaggiatori del Tempo: La Porta di Ferro", "link": "https://www.amazon.it/dp/B0DXBKFTM7", "immagine": "https://m.media-amazon.com/images/I/51B6D6Ynr9L._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "I Viaggiatori del Tempo: La Missione Impossibile", "link": "https://www.amazon.it/dp/B0DW3JSG7K", "immagine": "https://m.media-amazon.com/images/I/51HNlEqOxsL._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "Il Mistero della Villa: La Chiave del Destino", "link": "https://www.amazon.it/dp/B0DX237RNZ", "immagine": "https://m.media-amazon.com/images/I/41tUfgIvHwL._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "Il Mistero della Villa: Ombre nel Giardino", "link": "https://www.amazon.it/dp/B0DV8X37YX", "immagine": "https://m.media-amazon.com/images/I/51p9-Ogm6qL._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "Il Tesoro Perduto: La Maledizione della Statua d'Oro", "link": "https://www.amazon.it/dp/B0DTP9Y96W", "immagine": "https://m.media-amazon.com/images/I/81ZnVQ67RAL._SY342_.jpg" },
+    { "titolo": "L'Amore Perduto", "link": "https://www.amazon.it/dp/B0DTTB1ZW9", "immagine": "https://m.media-amazon.com/images/I/41aMWTh0xkL._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "L'Angelo Decaduto", "link": "https://www.amazon.it/dp/B0DTJYLS1R", "immagine": "https://m.media-amazon.com/images/I/41TyVPxU4oL._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "Luce di un Nuovo Giorno", "link": "https://www.amazon.it/dp/B0DTJ3QCPQ", "immagine": "https://m.media-amazon.com/images/I/71Kcupnx1eL._SY342_.jpg" },
+    { "titolo": "La Rapina Perfetta", "link": "https://www.amazon.it/dp/B0DT9QN6BZ", "immagine": "https://m.media-amazon.com/images/I/41K4mnDZ24L._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "Il Mistero della Villa: Il Risveglio", "link": "https://www.amazon.it/dp/B0DTF7QGRH", "immagine": "https://m.media-amazon.com/images/I/41LZcNWwj0L._SY445_SX342_ML2_.jpg" },
+    { "titolo": "Le Onde del Tempo", "link": "https://www.amazon.it/dp/B0DRH2R7HM", "immagine": "https://m.media-amazon.com/images/I/711FzR7D1RL._SY342_.jpg" },
+    { "titolo": "Oltre il Confine", "link": "https://www.amazon.it/dp/B0DRP9C488", "immagine": "https://m.media-amazon.com/images/I/71Xoe424zdL._SY342_.jpg" },
+    { "titolo": "Verso un Futuro Giusto", "link": "https://www.amazon.it/dp/B0DS9PBJSN", "immagine": "https://m.media-amazon.com/images/I/81ttXXBYjpL._SY342_.jpg" },
+    { "titolo": "Ombre di Metallo: La Rivolta contro Entryu", "link": "https://www.amazon.it/dp/B0DS8WNTC8", "immagine": "https://m.media-amazon.com/images/I/8122O3YhkgL._SY342_.jpg" },
+    { "titolo": "Voci di Cambiamento", "link": "https://www.amazon.it/dp/B0DS8JBTB3", "immagine": "https://m.media-amazon.com/images/I/51iK2jhHnfL._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "L'Uomo Senza Passato", "link": "https://www.amazon.it/dp/B0DS632HDC", "immagine": "https://m.media-amazon.com/images/I/41UEVbqgaKL._SY445_SX342_QL70_ML2_.jpg" },
+    { "titolo": "L'Ultima Foglia", "link": "https://www.amazon.it/dp/B0DRPN35QH", "immagine": "https://m.media-amazon.com/images/I/71WADsevdEL._SY342_.jpg" },
+    { "titolo": "Oltre il Velo del Tempo: la Quarta Dimensione", "link": "https://www.amazon.it/dp/B0DRRP7GCY", "immagine": "https://m.media-amazon.com/images/I/71aMoyhjkNL._SY342_.jpg" },
+    { "titolo": "L'Estate dei Sogni Perduti: Giulia e Marco", "link": "https://www.amazon.it/dp/B0DRYJFMKJ", "immagine": "https://m.media-amazon.com/images/I/61IHJZPQMfL._SY385_.jpg" },
+    { "titolo": "Ombre di un Futuro Lontano", "link": "https://www.amazon.it/dp/B0DRFR4LL9", "immagine": "https://m.media-amazon.com/images/I/61bbaiEs3jL._SY342_.jpg" },
+    { "titolo": "Il Mistero della Villa: i sussuri del passato", "link": "https://www.amazon.it/dp/B0DR71FS5F", "immagine": "https://m.media-amazon.com/images/I/717A0kzooML._SY342_.jpg" },
+    { "titolo": "Il Mistero della Villa: Una Villa Antica", "link": "https://www.amazon.it/dp/B0DR6YW3NR", "immagine": "https://m.media-amazon.com/images/I/71Njo3Q5bdL._SY342_.jpg" },
+    { "titolo": "Storie di Cuore: Viaggio di una Famiglia tra Italia e Svizzera", "link": "https://www.amazon.it/dp/B0DR5PGKPP", "immagine": "https://m.media-amazon.com/images/I/61aN9dBoS1L._SY342_.jpg" },
+    { "titolo": "Il Bar di Rosy: Rosy", "link": "https://www.amazon.it/dp/B0DQY55F8B", "immagine": "https://m.media-amazon.com/images/I/71bVxk03PZL._SY342_.jpg" },
+    { "titolo": "La Luce di Aron: un cucciolo di mare mano abbandonato", "link": "https://www.amazon.it/dp/B0DQXMM7C4", "immagine": "https://m.media-amazon.com/images/I/61p67XKx+qL._SY342_.jpg" },
+    { "titolo": "Vendetta di un Uomo: Black Angel: Il cane Max La GTR E46 M3", "link": "https://www.amazon.it/dp/B0DQWMQ8JR", "immagine": "https://m.media-amazon.com/images/I/613q5MnctDL._SY342_.jpg" },
+    { "titolo": "Il Tessitore di Destini: La Vita di Alex", "link": "https://www.amazon.it/dp/B0DQL3QC29", "immagine": "https://m.media-amazon.com/images/I/71eMGyYh+VL._SY342_.jpg" },
+    { "titolo": "Nella Magia del Natale: Storie di Rispetto e Uguaglianza", "link": "https://www.amazon.it/dp/B0DQKCFZFX", "immagine": "https://m.media-amazon.com/images/I/71AEeQ6Xu3L._SY342_.jpg" },
+    { "titolo": "Python Le Basi per Iniziare: Il Linguaggio per Tutti", "link": "https://www.amazon.it/dp/B0DQC37ZTW", "immagine": "https://m.media-amazon.com/images/I/611MT-Qi-YL._SY342_.jpg" },
+    { "titolo": "COLORA GIOCANDO: Il Segreto dei Animali, Il Mondo dei Numeri e La Magia delle Forme", "link": "https://www.amazon.it/dp/B0DLNNTBJK", "immagine": "https://m.media-amazon.com/images/I/71C81uztKkL._SY342_.jpg" },
+    { "titolo": "Quaderno Pentagrammato: Quaderno Pentagrammato con 120 Pagine", "link": "https://www.amazon.it/dp/B0DKJPH31G", "immagine": "https://m.media-amazon.com/images/I/7125oTcJYXL._SY342_.jpg" },
+    { "titolo": "IL MOMENTO DEI RICORDI: scuola secondaria di primo grado", "link": "https://www.amazon.it/dp/B0DKJJHF3M", "immagine": "https://m.media-amazon.com/images/I/71n-F4Xb-FL._SY342_.jpg" },
+    { "titolo": "Quaderno Pentagrammato: Quaderno Grande A4", "link": "https://www.amazon.it/dp/B0DJGHMYQ5", "immagine": "https://m.media-amazon.com/images/I/71S10zgmmOL._SY342_.jpg" },
+    { "titolo": "STORIE DI DINOSAURI: Storie per bambini", "link": "https://www.amazon.it/dp/B0DJ5ZL28T", "immagine": "https://m.media-amazon.com/images/I/71rXTcDO+5L._SY342_.jpg" }
   ]
 }
