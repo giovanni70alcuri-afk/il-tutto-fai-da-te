@@ -41,11 +41,60 @@ header { background: #003366; height: 80px; width: 100%; position: fixed; top: 0
 .dropdown-content a { color: white; padding: 12px 20px; text-decoration: none; display: block; font-size: 0.9rem; }
 .dropdown-content a:hover { background: #ffcc00; color: #000; }
 
-/* Layout */
-.main-layout { display: flex; justify-content: space-between; padding: 20px 20px 20px 80px; }
-.content-left { flex: 1; background: white; padding: 30px; border-radius: 12px; }
-.sidebar-right { width: 120px; }
-.sidebar-sticky-container { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 15px; }
+/* Layout Principale */
+.main-layout { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 20px 20px 20px 80px; 
+    gap: 20px; 
+}
+.content-left { flex: 1; background: white; padding: 30px; border-radius: 12px; min-height: 800px; }
+
+/* SIDEBAR DESTRA - Configurata per immagini 100x150 */
+.sidebar-right { 
+    width: 130px; 
+    flex-shrink: 0; 
+}
+
+#sidebar-sticky-container { 
+    position: sticky; 
+    top: 100px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+/* I 6 Slot (Riquadri Jimdo, Magliette, ecc.) */
+.riquadro-custom {
+    display: block;
+    background: white;
+    border: 2px solid #003366; /* Bordo blu come da progetto */
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s;
+    text-align: center;
+    width: 110px;
+    margin: 0 auto;
+}
+.riquadro-custom:hover { transform: scale(1.05); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+.riquadro-custom img { 
+    width: 100px; 
+    height: 150px; 
+    display: block; 
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.riquadro-custom span { 
+    display: block; 
+    padding: 5px; 
+    font-size: 0.8rem; 
+    font-weight: bold; 
+    background: #fff;
+}
 
 /* Carosello Infinite */
 .carosello-container { width: 100%; height: 150px; background: #111; overflow: hidden; border-bottom: 3px solid #ffcc00; position: relative; }
@@ -67,7 +116,7 @@ header { background: #003366; height: 80px; width: 100%; position: fixed; top: 0
 
 #bot-container {
     position: fixed; bottom: 90px; right: 20px; width: 300px;
-    background: white; border-radius: 10px; display: none; /* Nascosto */
+    background: white; border-radius: 10px; display: none;
     flex-direction: column; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 3000; overflow: hidden;
 }
 #bot-header { background: #cd2121; color: white; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; }
