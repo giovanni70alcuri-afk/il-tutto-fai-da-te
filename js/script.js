@@ -1,81 +1,115 @@
 async function inizializzaSito() {
+    console.log("Laboratorio di Angelo: Avvio sistema...");
+
     // 1. CARICA LIBRI NEL CAROSELLO
     try {
         const resLibri = await fetch('libri.json');
-        const dati = await resLibri.json();
-        const track = document.getElementById('track-libri'); // Usiamo l'ID aggiunto nell'HTML
-        
-        if (dati.libri && track) {
-            let htmlLibri = dati.libri.map(l => `
-                <div class="slide-item">
-                    <a href="${l.link_amazon}" target="_blank">
-                        <img src="${l.copertina}" alt="${l.titolo}">
-                    </a>
-                </div>
-            `).join('');
-            track.innerHTML = htmlLibri + htmlLibri; // Raddoppio per scorrimento infinito
+        if (resLibri.ok) {
+            const dati = await resLibri.json();
+            const track = document.getElementById('track-libri');
+            
+            if (dati.libri && track) {
+                // Usiamo "l.link" e "l.immagine" perché sono i nomi nel tuo JSON
+                let htmlLibri = dati.libri.map(l => `
+                    <div class="slide-item">
+                        <a href="${l.link || '#'}" target="_blank">
+                            <img src="${l.immagine}" alt="${l.titolo || 'Libro'}" onerror="this.style.display='none'">
+                        </a>
+                    </div>
+                `).join('');
+                track.innerHTML = htmlLibri + htmlLibri; // Doppia lista per scorrimento fluido
+            }
         }
-    } catch (e) { console.error("Errore Libri:", e); }
+    } catch (e) { console.error("Errore Caricamento Libri:", e); }
 
     // 2. CARICA SIDEBAR DESTRA
     try {
         const resSidebar = await fetch('sidebar.json');
-        const datiSidebar = await resSidebar.json();
-        const container = document.getElementById('sidebar-sticky-container');
-        
-        if (container && datiSidebar.riquadri) {
-            container.innerHTML = datiSidebar.riquadri.map(r => `
-                <a href="${r.link}" target="_blank" class="riquadro-custom">
-                    <img src="${r.immagine}" alt="${r.titolo}">
-                    <span>${r.titolo}</span>
-                </a>`).join('');
+        if (resSidebar.ok) {
+            const datiSidebar = await resSidebar.json();
+            const container = document.getElementById('sidebar-sticky-container');
+            
+            if (container && datiSidebar.riquadri) {
+                container.innerHTML = datiSidebar.riquadri.map(r => `
+                    <a href="${r.link || '#'}" target="_blank" class="riquadro-custom">
+                        <img src="${r.immagine}" alt="${r.titolo || 'Info'}" onerror="this.style.display='none'">
+                        <span>${r.titolo || ''}</span>
+                    </a>`).join('');
+            }
         }
     } catch (e) { console.error("Errore Sidebar:", e); }
 
-    // 3. CARICA FOOTER E TERMINI (Copyright e Disclaimer)
+    // 3. CARICA FOOTER E TERMINI
     try {
         const resFooter = await fetch('footer.json');
         const resTermini = await fetch('termini.json');
-        const fDati = await resFooter.json();
-        const tDati = await resTermini.json();
-        const footerCont = document.getElementById('footer-sito');
-        if (footerCont) {
-            footerCont.innerHTML = `<p>${fDati.motto}</p><p>${tDati.copyright} | ${tDati.disclaimer_amazon}</p>`;
+        
+        if (resFooter.ok && resTermini.ok) {
+            const fDati = await resFooter.json();
+            const tDati = await resTermini.json();
+            const footerCont = document.getElementById('footer-sito');
+            if (footerCont) {
+                // Se i dati mancano, usiamo testi di riserva per evitare "undefined"
+                const motto = fDati.motto || "Passione per il Fai Da Te";
+                const copy = tDati.copyright || "© 2026 Angelo Cacioppo";
+                const amazon = tDati.disclaimer_amazon || "";
+                footerCont.innerHTML = `<p>${motto}</p><p>${copy} | ${amazon}</p>`;
+            }
         }
     } catch (e) { console.error("Errore Footer:", e); }
 }
 
 // 4. FUNZIONE PER CARICARE LE CATEGORIE (Elettronica, Restauro, ecc.)
 async function mostraCategoria(nomeFile) {
+    if (!nomeFile || nomeFile === 'undefined') return;
+
     try {
         const risposta = await fetch(`${nomeFile}.json`);
+        if (!risposta.ok) throw new Error("File non trovato");
+
         const dati = await risposta.json();
         const contenitore = document.getElementById('prodotti-lista');
         const titoloPagina = document.getElementById('titolo-sezione');
         
-        titoloPagina.innerText = nomeFile.replace('_', ' ').toUpperCase();
-        contenitore.innerHTML = ""; 
-
-        // Individua l'array corretto nel JSON (es. "schede_elettronica" o "recensioni")
-        const chiaveArray = Object.keys(dati)[0];
-        const lista = dati[chiaveArray]; 
+        if (titoloPagina) titoloPagina.innerText = nomeFile.replace('_', ' ').toUpperCase();
         
-        lista.forEach(item => {
-            contenitore.innerHTML += `
-                <div class="card-progetto" style="border: 1px solid #003366; padding: 15px; margin-bottom: 10px; border-radius: 8px; background: white;">
-                    <h3>${item.titolo || item.prodotto}</h3>
-                    <p>${item.descrizione || item.info || ''}</p>
-                    <a href="${item.link_articolo || item.link_amazon}" target="_blank" style="color:#cd2121; font-weight:bold;">Apri Dettagli →</a>
-                </div>`;
-        });
-    } catch (e) { console.error("Errore Categoria:", e); }
+        if (contenitore) {
+            contenitore.innerHTML = ""; 
+
+            // Trova il primo array disponibile nel JSON
+            const chiaveArray = Object.keys(dati)[0];
+            const lista = dati[chiaveArray]; 
+            
+            if (Array.isArray(lista)) {
+                lista.forEach(item => {
+                    // Supporta sia "titolo/descrizione" che "prodotto/info"
+                    const titolo = item.titolo || item.prodotto || "Progetto";
+                    const desc = item.descrizione || item.info || "";
+                    const link = item.link_articolo || item.link_amazon || item.link || "#";
+
+                    contenitore.innerHTML += `
+                        <div class="card-progetto" style="border: 1px solid #003366; padding: 15px; margin-bottom: 10px; border-radius: 8px; background: white;">
+                            <h3>${titolo}</h3>
+                            <p>${desc}</p>
+                            <a href="${link}" target="_blank" style="color:#cd2121; font-weight:bold;">Apri Dettagli →</a>
+                        </div>`;
+                });
+            }
+        }
+    } catch (e) { 
+        console.error("Errore Categoria:", e);
+        const contenitore = document.getElementById('prodotti-lista');
+        if (contenitore) contenitore.innerHTML = "<p>Contenuto in arrivo...</p>";
+    }
 }
 
-// Funzione per Aprire/Chiudere la Chat del Bot
+// Funzione Chat Bot
 function toggleChat() {
     const chat = document.getElementById('bot-container');
-    chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'flex' : 'none';
+    if (chat) {
+        chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'flex' : 'none';
+    }
 }
 
-// Avvia tutto al caricamento della pagina
+// Avvio automatico
 document.addEventListener('DOMContentLoaded', inizializzaSito);
