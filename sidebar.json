@@ -2,7 +2,7 @@
   {
     "id": 1,
     "funzione": "IMPIANTI_JIMBO",
-    "attivo": true,
+    "attivo": false,
     "immagine": "https://via.placeholder.com/100x150?text=Foto+Jimdo",
     "link": "https://iltuttofaidate.jimdofree.com/",
     "descrizione": "Progetti Hi-Fi Car"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "funzione": "SHOP_MAGLIETTE",
-    "attivo": true,
+    "attivo": false,
     "immagine": "https://via.placeholder.com/100x150?text=Maglietta",
     "link": "#",
     "descrizione": "La mia Maglietta"
@@ -48,3 +48,4 @@
     "descrizione": "Spazio libero"
   }
 ]
+
