@@ -1,63 +1,67 @@
-// Funzione per leggere i file JSON
 async function caricaDati(url) {
     try {
-        const risposta = await fetch(url + '?v=' + new Date().getTime());
-        if (!risposta.ok) return null;
-        return await risposta.json();
+        const res = await fetch(url + '?v=' + new Date().getTime());
+        return res.ok ? await res.json() : null;
     } catch (e) { return null; }
 }
 
 async function inizializzaSito() {
-    // CARICHIAMO I LIBRI NEL CAROSELLO
-    const datiLibri = await caricaDati('libri.json');
-    const contenitoreLibri = document.getElementById('track-libri');
+    // --- 1. SIDEBAR DESTRA (Riquadri Maglietta, Jimbo, ecc.) ---
+    const datiDX = await caricaDati('sidebar.json');
+    const contenitoreDX = document.getElementById('sidebar-sticky-container');
     
-    if (datiLibri && datiLibri.libri && contenitoreLibri) {
-        contenitoreLibri.innerHTML = datiLibri.libri.map(libro => `
+    if (datiDX && Array.isArray(datiDX) && contenitoreDX) {
+        contenitoreDX.innerHTML = datiDX
+            .filter(r => r.attivo === true) // Mostra solo quelli con "attivo": true
+            .map(r => `
+                <a href="${r.link}" target="_blank" class="riquadro-custom">
+                    <img src="${r.immagine}" alt="${r.descrizione}">
+                    <span>${r.descrizione}</span>
+                </a>`).join('');
+    }
+
+    // --- 2. SIDEBAR SINISTRA (Menu Laterale) ---
+    // Nota: Se vuoi che il menu sia dinamico dal JSON, lo script lo caricherebbe qui.
+    // Al momento il tuo index.html ha già il menu fisso.
+
+    // --- 3. CAROSELLO LIBRI ---
+    const datiLibri = await caricaDati('libri.json');
+    const track = document.getElementById('track-libri');
+    if (datiLibri && datiLibri.libri && track) {
+        track.innerHTML = datiLibri.libri.map(l => `
             <div class="slide-item">
-                <a href="${libro.link || libro.link_amazon || '#'}" target="_blank">
-                    <img src="${libro.immagine || libro.copertina}" alt="Libro">
+                <a href="${l.link || l.link_amazon}" target="_blank">
+                    <img src="${l.immagine || l.copertina}" alt="Libro">
                 </a>
             </div>`).join('');
     }
-
-    // CARICHIAMO LA SIDEBAR DESTRA
-    const datiSidebar = await caricaDati('sidebar.json');
-    const contenitoreSidebar = document.getElementById('sidebar-sticky-container');
-    if (datiSidebar && contenitoreSidebar) {
-        const lista = Array.isArray(datiSidebar) ? datiSidebar : (datiSidebar.riquadri || []);
-        contenitoreSidebar.innerHTML = lista.filter(r => r.attivo !== false).map(r => `
-            <a href="${r.link || '#'}" target="_blank" class="riquadro-custom">
-                <img src="${r.immagine || r.foto}" alt="Link">
-                <span>${r.descrizione || r.titolo}</span>
-            </a>`).join('');
-    }
 }
 
-// FUNZIONE PER MOSTRARE I VIDEO E I POST
-async function mostraCategoria(nomeFile) {
-    const areaPost = document.getElementById('prodotti-lista');
-    const titoloSezione = document.getElementById('titolo-sezione');
-    
-    if (areaPost) areaPost.innerHTML = "<p>Sto cercando i file nel laboratorio...</p>";
+// Funzione per mostrare i video delle categorie
+async function mostraCategoria(slug) {
+    const area = document.getElementById('prodotti-lista');
+    const titolo = document.getElementById('titolo-sezione');
+    if (!area) return;
 
-    const dati = await caricaDati(nomeFile + '.json');
-    if (titoloSezione) titoloSezione.innerText = nomeFile.toUpperCase();
+    area.innerHTML = "<p>Caricamento...</p>";
+    const dati = await caricaDati(slug + '.json');
+    
+    if (titolo) titolo.innerText = slug.toUpperCase();
 
     if (!dati) {
-        if (areaPost) areaPost.innerHTML = "<p>Nessun contenuto trovato per " + nomeFile + "</p>";
+        area.innerHTML = "<p>Nessun video trovato per questa categoria.</p>";
         return;
     }
 
-    const chiave = Object.keys(dati)[0];
-    const listaPost = Array.isArray(dati) ? dati : dati[chiave];
+    // Cerca la lista dentro il file (es. dati.elettronica o dati.video)
+    const lista = Array.isArray(dati) ? dati : (dati[slug] || dati.video || dati.elenco_video);
 
-    if (Array.isArray(listaPost) && areaPost) {
-        areaPost.innerHTML = listaPost.map(item => `
-            <div style="border:1px solid #ccc; padding:15px; margin-bottom:15px; border-radius:10px; background:#fff;">
-                <h3>${item.titolo || item.prodotto}</h3>
-                <p>${item.descrizione || item.info || ''}</p>
-                <a href="${item.link || item.link_amazon || '#'}" target="_blank" style="color:red; font-weight:bold;">Guarda Dettagli →</a>
+    if (lista) {
+        area.innerHTML = lista.map(item => `
+            <div class="card-progetto" style="border:1px solid #003366; padding:15px; margin-bottom:20px; background:white; border-radius:8px;">
+                <h3>${item.titolo}</h3>
+                <p>${item.descrizione}</p>
+                <a href="${item.link || item.url || '#'}" target="_blank" style="color:red; font-weight:bold;">Guarda Video →</a>
             </div>`).join('');
     }
 }
