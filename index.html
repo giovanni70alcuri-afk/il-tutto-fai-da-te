@@ -26,11 +26,10 @@
                     <span class="label-nav">Video <i class="fas fa-chevron-right" style="font-size:0.7rem"></i></span>
                 </a>
                 <div class="dropdown-content">
-                    <a href="#hifi">Video Hi-Fi</a>
-                    <a href="#faidate">Video Fai da Te</a>
-                    <a href="#elettronica">Video Elettronica</a>
-                    <a href="#restauro">Restauro</a>
-                    <a href="#recensioni">Recensioni Attrezzi</a>
+                    <a href="#" onclick="mostraCategoria('elettronica')">Video Elettronica</a>
+                    <a href="#" onclick="mostraCategoria('restauro')">Restauro</a>
+                    <a href="#" onclick="mostraCategoria('recensioni_attrezzi')">Recensioni Attrezzi</a>
+                    <a href="#" onclick="mostraCategoria('deposito_progetti')">Deposito Progetti</a>
                 </div>
             </div>
 
@@ -50,19 +49,21 @@
 
         <div class="separator"></div>
 
-        <div class="social-section">
+        <div class="social-section" id="social-links">
             <a href="https://www.youtube.com/@iltuttofaidate" target="_blank" class="nav-icon youtube"><i class="fab fa-youtube"></i></a>
             <a href="#" class="nav-icon facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#shop" class="nav-icon shop"><i class="fas fa-shopping-cart"></i></a>
         </div>
     </nav>
 
-    <div class="carosello-container"></div>
+    <div class="carosello-container">
+        <div class="slider-track" id="track-libri"></div>
+    </div>
 
     <main class="main-layout">
         <section class="content-left">
-            <h1>Benvenuti nel Laboratorio</h1>
-            <p>Usa il menu a sinistra per esplorare i video e le guide tecniche.</p>
+            <h1 id="titolo-sezione">Benvenuti nel Laboratorio</h1>
+            <p id="descrizione-sezione">Usa il menu a sinistra per esplorare i video e le guide tecniche.</p>
             <div id="prodotti-lista"></div>
             <div style="height: 500px;"></div>
         </section>
@@ -71,6 +72,8 @@
             <div id="sidebar-sticky-container"></div>
         </aside>
     </main>
+
+    <footer id="footer-sito" style="padding: 20px; text-align: center; font-size: 0.8rem; color: #666;"></footer>
 
     <div id="bot-launcher" onclick="toggleChat()">🤖</div>
 
