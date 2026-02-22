@@ -6,22 +6,6 @@
     <title>Il Tutto Fai Da Te | Angelo Cacioppo</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Aggiungiamo un po' di stile per sicurezza */
-        .sidebar-right { width: 250px; padding: 15px; }
-        .riquadro-custom { 
-            background: #fff; border: 1px solid #ddd; 
-            padding: 10px; margin-bottom: 20px; 
-            border-radius: 8px; text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .riquadro-custom img { max-width: 100%; border-radius: 5px; }
-        .card-progetto { 
-            background: #fff; border-left: 5px solid #003366;
-            padding: 15px; margin-bottom: 15px; border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-    </style>
 </head>
 <body>
 
@@ -52,60 +36,53 @@
     </nav>
 
     <div class="carosello-container">
-        <div class="slider-track" id="track-libri">
-            </div>
+        <div class="slider-track" id="track-libri"></div>
     </div>
 
     <main class="main-layout">
         <section class="content-left">
             <h1 id="titolo-sezione">Benvenuti nel Laboratorio</h1>
-            <div id="prodotti-lista">
-                </div>
+            <div id="prodotti-lista"></div>
         </section>
 
         <aside class="sidebar-right">
-            <div id="sidebar-sticky-container">
-                </div>
+            <div id="sidebar-sticky-container"></div>
         </aside>
     </main>
 
     <footer id="footer-sito"></footer>
 
     <script>
+        // MOTORE INVISIBILE - NON TOCCA IL DESIGN
         async function caricaDati(url) {
             try {
-                // Aggiungiamo un numero casuale per evitare la vecchia memoria (cache)
                 const res = await fetch(url + '?v=' + Date.now());
-                if (!res.ok) throw new Error('File non trovato');
-                return await res.json();
-            } catch (e) {
-                console.error("Errore caricamento " + url, e);
-                return null;
-            }
+                return res.ok ? await res.json() : null;
+            } catch (e) { return null; }
         }
 
         async function inizializzaSito() {
-            // 1. Carica Sidebar Destra
+            // Carica Sidebar Destra (Maglietta/Jimbo)
             const datiDX = await caricaDati('sidebar.json');
             const contDX = document.getElementById('sidebar-sticky-container');
             if (datiDX && contDX) {
-                contDX.innerHTML = datiDX.filter(i => i.attivo === true).map(i => `
+                contDX.innerHTML = datiDX.filter(i => i.attivo).map(i => `
                     <div class="riquadro-custom">
-                        <a href="${i.link}" target="_blank" style="text-decoration:none; color:#333;">
+                        <a href="${i.link}" target="_blank">
                             <img src="${i.immagine}" alt="${i.descrizione}">
-                            <p><b>${i.descrizione}</b></p>
+                            <span>${i.descrizione}</span>
                         </a>
                     </div>`).join('');
             }
 
-            // 2. Carica Libri
+            // Carica Libri
             const datiLibri = await caricaDati('libri.json');
             const track = document.getElementById('track-libri');
             if (datiLibri && datiLibri.libri && track) {
                 track.innerHTML = datiLibri.libri.map(l => `
-                    <div class="slide-item" style="display:inline-block; margin:10px;">
+                    <div class="slide-item">
                         <a href="${l.link || l.link_amazon}" target="_blank">
-                            <img src="${l.immagine || l.copertina}" alt="Libro" style="height:150px;">
+                            <img src="${l.immagine || l.copertina}" alt="Libro">
                         </a>
                     </div>`).join('');
             }
@@ -114,23 +91,17 @@
         async function mostraCategoria(slug) {
             const area = document.getElementById('prodotti-lista');
             const titolo = document.getElementById('titolo-sezione');
-            area.innerHTML = "<p>Caricamento video in corso...</p>";
-            
             const dati = await caricaDati(slug + '.json');
             if (titolo) titolo.innerText = slug.toUpperCase().replace('_', ' ');
+            if (!dati) return;
 
-            if (!dati) {
-                area.innerHTML = "<p>Nessun video trovato. Controlla che il file " + slug + ".json esista su GitHub.</p>";
-                return;
-            }
-
-            const lista = Array.isArray(dati) ? dati : (dati[slug] || dati.video || dati.elenco_video);
+            const lista = Array.isArray(dati) ? dati : (dati[slug] || dati.video);
             if (lista) {
                 area.innerHTML = lista.map(item => `
                     <div class="card-progetto">
                         <h3>${item.titolo || item.prodotto}</h3>
                         <p>${item.descrizione || ''}</p>
-                        <a href="${item.link || item.url || '#'}" target="_blank" style="color:#cd2121; font-weight:bold;">Guarda il Video →</a>
+                        <a href="${item.link || '#'}" target="_blank" class="btn-link">Guarda Video →</a>
                     </div>`).join('');
             }
         }
