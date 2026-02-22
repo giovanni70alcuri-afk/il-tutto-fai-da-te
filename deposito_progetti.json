@@ -5,7 +5,7 @@
       "titolo": "Restauro Radio d'Epoca - Modello XYZ",
       "sito_origine": "Blogger",
       "link_articolo": "https://tuoblog.blogspot.com/articolo-radio",
-      "link_foto_anteprima": "https://blogger.googleusercontent.com/img/link-della-tua-foto.jpg",
+      "link_foto_anteprima": "https://picsum.photos/400/300?random=1",
       "descrizione_breve": "Recupero totale di una radio anni '50 trovata in soffitta.",
       "categoria": "Restauro"
     },
@@ -14,7 +14,7 @@
       "titolo": "Costruzione Mobile Laboratorio",
       "sito_origine": "Sito Vecchio",
       "link_articolo": "https://vecchiosito.it/progetto-mobile",
-      "link_foto_anteprima": "https://vecchiosito.it/foto-anteprima.jpg",
+      "link_foto_anteprima": "https://picsum.photos/400/300?random=2",
       "descrizione_breve": "Progetto di falegnameria per organizzare gli attrezzi.",
       "categoria": "Fai da te"
     }
