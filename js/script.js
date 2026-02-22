@@ -6,25 +6,23 @@ async function caricaDati(url) {
 }
 
 async function inizializzaSito() {
-    // --- 1. SIDEBAR DESTRA (Riquadri Maglietta, Jimbo, ecc.) ---
+    // --- LATO DESTRO (Maglietta, Jimbo, ecc.) ---
     const datiDX = await caricaDati('sidebar.json');
     const contenitoreDX = document.getElementById('sidebar-sticky-container');
-    
     if (datiDX && Array.isArray(datiDX) && contenitoreDX) {
+        // Mostra solo quelli dove hai messo "attivo": true
         contenitoreDX.innerHTML = datiDX
-            .filter(r => r.attivo === true) // Mostra solo quelli con "attivo": true
-            .map(r => `
-                <a href="${r.link}" target="_blank" class="riquadro-custom">
-                    <img src="${r.immagine}" alt="${r.descrizione}">
-                    <span>${r.descrizione}</span>
-                </a>`).join('');
+            .filter(item => item.attivo === true)
+            .map(item => `
+                <div class="riquadro-custom" style="margin-bottom: 20px; text-align: center;">
+                    <a href="${item.link}" target="_blank">
+                        <img src="${item.immagine}" alt="${item.descrizione}" style="width: 100%; border-radius: 8px;">
+                        <p style="margin-top: 5px; font-weight: bold;">${item.descrizione}</p>
+                    </a>
+                </div>`).join('');
     }
 
-    // --- 2. SIDEBAR SINISTRA (Menu Laterale) ---
-    // Nota: Se vuoi che il menu sia dinamico dal JSON, lo script lo caricherebbe qui.
-    // Al momento il tuo index.html ha già il menu fisso.
-
-    // --- 3. CAROSELLO LIBRI ---
+    // --- CAROSELLO LIBRI (Sempre attivo) ---
     const datiLibri = await caricaDati('libri.json');
     const track = document.getElementById('track-libri');
     if (datiLibri && datiLibri.libri && track) {
@@ -37,31 +35,31 @@ async function inizializzaSito() {
     }
 }
 
-// Funzione per mostrare i video delle categorie
+// Funzione per mostrare i Video
 async function mostraCategoria(slug) {
     const area = document.getElementById('prodotti-lista');
     const titolo = document.getElementById('titolo-sezione');
     if (!area) return;
 
-    area.innerHTML = "<p>Caricamento...</p>";
+    area.innerHTML = "<p>Caricamento in corso...</p>";
     const dati = await caricaDati(slug + '.json');
     
-    if (titolo) titolo.innerText = slug.toUpperCase();
+    if (titolo) titolo.innerText = slug.toUpperCase().replace('_', ' ');
 
     if (!dati) {
-        area.innerHTML = "<p>Nessun video trovato per questa categoria.</p>";
+        area.innerHTML = "<p>Nessun contenuto trovato in " + slug + ".json</p>";
         return;
     }
 
-    // Cerca la lista dentro il file (es. dati.elettronica o dati.video)
-    const lista = Array.isArray(dati) ? dati : (dati[slug] || dati.video || dati.elenco_video);
+    // Cerca la lista dentro il file (si adatta a come lo hai scritto tu)
+    const lista = Array.isArray(dati) ? dati : (dati[slug] || dati.video || dati.elenco_video || dati.archivio_progetti);
 
     if (lista) {
         area.innerHTML = lista.map(item => `
-            <div class="card-progetto" style="border:1px solid #003366; padding:15px; margin-bottom:20px; background:white; border-radius:8px;">
-                <h3>${item.titolo}</h3>
-                <p>${item.descrizione}</p>
-                <a href="${item.link || item.url || '#'}" target="_blank" style="color:red; font-weight:bold;">Guarda Video →</a>
+            <div class="card-video" style="border:1px solid #003366; padding:20px; margin-bottom:20px; background:#fff; border-radius:10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <h3>${item.titolo || item.prodotto}</h3>
+                <p>${item.descrizione || item.descrizione_breve || ''}</p>
+                <a href="${item.link || item.link_articolo || '#'}" target="_blank" style="color:#cd2121; font-weight:bold; text-decoration:none;">Apri Progetto →</a>
             </div>`).join('');
     }
 }
