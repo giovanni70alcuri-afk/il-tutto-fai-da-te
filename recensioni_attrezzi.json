@@ -2,11 +2,9 @@
   "recensioni": [
     {
       "id": "rec_001",
-      "attrezzo": "Saldatore Digitale Professionale",
-      "link_amazon": "IL_TUO_LINK_AFFILIATO",
-      "link_video": "LINK_YOUTUBE_O_BLOG",
-      "voto": "5/5",
-      "descrizione": "Perché ho scelto questo modello per il mio laboratorio."
+      "titolo": "Saldatore Digitale Professionale",
+      "link": "https://www.amazon.it/l/B0DLYM6687",
+      "descrizione": "Recensione tecnica: perché ho scelto questo modello per il mio laboratorio e come si comporta nelle riparazioni difficili."
     }
   ]
 }
