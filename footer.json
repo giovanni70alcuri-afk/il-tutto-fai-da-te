@@ -1,25 +1,7 @@
 {
-  "copyright": "© 2026 Angelo Cacioppo - Il Laboratorio di Angelo",
+  "motto": "Passione per l'elettronica, il restauro e la scrittura.",
   "social": [
-    {
-      "piattaforma": "YouTube",
-      "url": "https://www.youtube.com/@IL-LABORATORIO-DI-ANGELO",
-      "icona": "fa-youtube"
-    },
-    {
-      "piattaforma": "Facebook",
-      "url": "#",
-      "icona": "fa-facebook"
-    },
-    {
-      "piattaforma": "Amazon",
-      "url": "https://www.amazon.it/l/B0DLYM6687",
-      "icona": "fa-amazon"
-    }
-  ],
-  "info_legali": [
-    { "testo": "Privacy Policy", "link": "#" },
-    { "testo": "Affiliazione Amazon", "link": "#" }
-  ],
-  "motto": "Passione per l'elettronica, il restauro e la scrittura."
+    { "nome": "YouTube", "url": "https://www.youtube.com/@IL-LABORATORIO-DI-ANGELO" },
+    { "nome": "Amazon", "url": "https://www.amazon.it/l/B0DLYM6687" }
+  ]
 }
