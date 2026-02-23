@@ -1,18 +1,46 @@
 [
   {
     "id": 1,
-    "funzione": "IMPIANTI_JIMBO",
     "attivo": true,
-    "immagine": "https://m.media-amazon.com/images/I/41hey8m7cHL._SY445_SX342_QL70_ML2_.jpg",
-    "link": "https://iltuttofaidate.jimdofree.com/",
-    "descrizione": "Progetti Hi-Fi Car"
+    "tipo": "maglietta",
+    "descrizione": "Maglietta Amazon",
+    "immagine": "INCOLLA_QUI_IL_LINK_DELLA_FOTO_DA_JIMBO",
+    "link": "https://www.amazon.it/tuo-link-maglietta"
   },
   {
     "id": 2,
-    "funzione": "SHOP_MAGLIETTE",
     "attivo": true,
-    "immagine": "https://m.media-amazon.com/images/I/71AEeQ6Xu3L._SY342_.jpg",
-    "link": "https://www.amazon.it/l/B0DLYM6687",
-    "descrizione": "La mia Maglietta"
+    "tipo": "impianti",
+    "descrizione": "Impianti Hi-Fi",
+    "immagine": "INCOLLA_QUI_IL_LINK_DELLA_FOTO_DA_JIMBO",
+    "link": "https://TUO_SITO_JIMBO.it"
+  },
+  {
+    "id": 3,
+    "attivo": false,
+    "descrizione": "Slot Libero",
+    "immagine": "",
+    "link": ""
+  },
+  {
+    "id": 4,
+    "attivo": false,
+    "descrizione": "Slot Libero",
+    "immagine": "",
+    "link": ""
+  },
+  {
+    "id": 5,
+    "attivo": false,
+    "descrizione": "Slot Libero",
+    "immagine": "",
+    "link": ""
+  },
+  {
+    "id": 6,
+    "attivo": false,
+    "descrizione": "Slot Libero",
+    "immagine": "",
+    "link": ""
   }
 ]
