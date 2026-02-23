@@ -1,16 +1,24 @@
 {
   "archivio_progetti": [
     {
-      "id": "prog_001",
-      "titolo": "Restauro Radio d'Epoca - Modello XYZ",
-      "link": "https://iltuttofaidate.jimdofree.com/",
-      "descrizione": "Recupero totale di una radio anni '50 trovata in soffitta. Foto e schema elettrico."
+      "titolo": "costruzione tester led strisce tv",
+      "descrizione": "progetto completo per testare i led senza smontare il pannello. schema incluso.",
+      "immagine": "INSERIRE_IMMAGINE"
     },
     {
-      "id": "prog_002",
-      "titolo": "Costruzione Mobile Laboratorio",
-      "link": "https://iltuttofaidate.jimdofree.com/",
-      "descrizione": "Progetto di falegnameria per organizzare gli attrezzi in modo professionale."
+      "titolo": "pannello solare portatile fai da te",
+      "descrizione": "assemblaggio celle e regolatore di carica per ricaricare smartphone in campeggio.",
+      "immagine": "INSERIRE_IMMAGINE"
+    },
+    {
+      "titolo": "banco da lavoro modulare",
+      "descrizione": "progetto in legno e metallo con cassettiere integrate per minuteria elettronica.",
+      "immagine": "INSERIRE_IMMAGINE"
+    },
+    {
+      "titolo": "mini amplificatore audio 10w",
+      "descrizione": "circuito basato su integrato tda. ideale per piccole casse da scrivania.",
+      "immagine": "INSERIRE_IMMAGINE"
     }
   ]
 }
