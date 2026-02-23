@@ -1,40 +1,34 @@
-// Funzione per caricare le Sidebar
-async function caricaSidebars() {
+async function caricaSito() {
     try {
-        // Carica Sidebar Sinistra (Social/Menu)
+        // 1. Carica Sidebar Sinistra
         const resSx = await fetch('json/sidebarsx.json');
         const dataSx = await resSx.json();
         const containerSx = document.getElementById('sidebar-left');
-        
         dataSx.forEach(item => {
             if(item.attivo) {
-                containerSx.innerHTML += `
-                    <a href="${item.link}" style="text-decoration:none; color:black;">
-                        <img src="${item.immagine}" style="width:40px; height:40px;"><br>
-                        <small>${item.descrizione}</small>
-                    </a>`;
+                containerSx.innerHTML += `<a href="${item.link}"><img src="${item.immagine}" width="40"><br>${item.descrizione}</a><br><br>`;
             }
         });
 
-        // Carica Sidebar Destra (Magliette/Jimbo)
+        // 2. Carica Sidebar Destra (Le 6 caselle)
         const resDx = await fetch('json/sidebardx.json');
         const dataDx = await resDx.json();
         const containerDx = document.getElementById('sidebar-right');
-        
         dataDx.forEach(item => {
             if(item.attivo) {
-                containerDx.innerHTML += `
-                    <a href="${item.link}" class="card-dx">
-                        <img src="${item.immagine}" alt="foto">
-                        <span>${item.descrizione}</span>
-                    </a>`;
+                containerDx.innerHTML += `<a href="${item.link}" class="card-dx"><img src="${item.immagine}"><span>${item.descrizione}</span></a>`;
             }
         });
 
-    } catch (error) {
-        console.error("Errore nel caricamento dei dati JSON:", error);
-    }
+        // 3. Carica Video (Griglia Centrale)
+        const resVid = await fetch('json/video.json');
+        const dataVid = await resVid.json();
+        const containerVid = document.getElementById('main-video-container');
+        dataVid.forEach(v => {
+            containerVid.innerHTML += `<div class="video-card"><h3>${v.titolo}</h3></div>`; // Esempio semplificato
+        });
+
+    } catch (e) { console.error("Errore caricamento dati", e); }
 }
 
-// Avvia tutto al caricamento della pagina
-window.onload = caricaSidebars;
+caricaSito();
