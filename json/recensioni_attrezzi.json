@@ -1,10 +1,28 @@
 {
   "recensioni": [
     {
-      "id": "rec_001",
-      "titolo": "Saldatore Digitale Professionale",
-      "link": "https://www.amazon.it/l/B0DLYM6687",
-      "descrizione": "Recensione tecnica: perché ho scelto questo modello per il mio laboratorio e come si comporta nelle riparazioni difficili."
+      "attrezzo": "stazione saldante digitale yihua",
+      "descrizione": "test della temperatura e velocità di riscaldamento. ottima per componenti smd.",
+      "immagine": "INSERIRE_IMMAGINE",
+      "link_amazon": "INSERIRE_LINK"
+    },
+    {
+      "attrezzo": "multimetro professionale aneng",
+      "descrizione": "recensione completa: precisione sulle letture di tensione e test dei condensatori esr.",
+      "immagine": "INSERIRE_IMMAGINE",
+      "link_amazon": "INSERIRE_LINK"
+    },
+    {
+      "attrezzo": "oscilloscopio portatile fnirsi",
+      "descrizione": "piccolo ma potente. vediamo come si comporta nell'analisi dei segnali pwm.",
+      "immagine": "INSERIRE_IMMAGINE",
+      "link_amazon": "INSERIRE_LINK"
+    },
+    {
+      "attrezzo": "alimentatore da banco variabile 30v 5a",
+      "descrizione": "recensione sulla stabilità della corrente e protezione contro i cortocircuiti.",
+      "immagine": "INSERIRE_IMMAGINE",
+      "link_amazon": "INSERIRE_LINK"
     }
   ]
 }
