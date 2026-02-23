@@ -18,13 +18,16 @@
     <button onclick="mostraCategoria('restauro')">restauro</button>
     <button onclick="mostraCategoria('recensioni_attrezzi')">recensioni</button>
     <button onclick="mostraCategoria('deposito_progetti')">progetti</button>
+    <button onclick="mostraCategoria('libri')">libri</button>
 </nav>
 
 <div class="layout">
     <aside class="sidebar-left" id="sidebar-left"></aside>
     <main>
-        <h2 id="titolo-sezione">contenuti</h2>
-        <div id="prodotti-lista"></div>
+        <h2 id="titolo-sezione">Benvenuto nel Laboratorio</h2>
+        <div id="prodotti-lista">
+            <p>Seleziona una categoria dal menu per iniziare.</p>
+        </div>
     </main>
     <aside class="sidebar-right" id="sidebar-right"></aside>
 </div>
@@ -32,13 +35,13 @@
 <div id="chat-toggle">🤖</div>
 <div id="chat-box" class="chat-chiusa">
     <div id="chat-header">
-        assistente
+        Assistente Angelo
         <span onclick="toggleChat()" style="float:right;cursor:pointer;">x</span>
     </div>
     <div id="chat-messages"></div>
     <div id="chat-input-area">
-        <input type="text" id="chat-input">
-        <button onclick="inviaMessaggio()">invia</button>
+        <input type="text" id="chat-input" placeholder="Scrivi libri o restauro...">
+        <button onclick="inviaMessaggio()">Invia</button>
     </div>
 </div>
 
