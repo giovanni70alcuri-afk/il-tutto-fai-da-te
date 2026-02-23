@@ -1,47 +1,40 @@
-async function caricaJSON(nome){
-    try{
-        const res = await fetch('json/' + nome + '.json?v=' + Date.now());
-        return await res.json();
-    }catch{
-        return null;
+// Funzione per caricare le Sidebar
+async function caricaSidebars() {
+    try {
+        // Carica Sidebar Sinistra (Social/Menu)
+        const resSx = await fetch('json/sidebarsx.json');
+        const dataSx = await resSx.json();
+        const containerSx = document.getElementById('sidebar-left');
+        
+        dataSx.forEach(item => {
+            if(item.attivo) {
+                containerSx.innerHTML += `
+                    <a href="${item.link}" style="text-decoration:none; color:black;">
+                        <img src="${item.immagine}" style="width:40px; height:40px;"><br>
+                        <small>${item.descrizione}</small>
+                    </a>`;
+            }
+        });
+
+        // Carica Sidebar Destra (Magliette/Jimbo)
+        const resDx = await fetch('json/sidebardx.json');
+        const dataDx = await resDx.json();
+        const containerDx = document.getElementById('sidebar-right');
+        
+        dataDx.forEach(item => {
+            if(item.attivo) {
+                containerDx.innerHTML += `
+                    <a href="${item.link}" class="card-dx">
+                        <img src="${item.immagine}" alt="foto">
+                        <span>${item.descrizione}</span>
+                    </a>`;
+            }
+        });
+
+    } catch (error) {
+        console.error("Errore nel caricamento dei dati JSON:", error);
     }
 }
 
-async function caricaSidebar(){
-    const dati = await caricaJSON("sidebar");
-    if(!dati) return;
-
-    const sx = document.getElementById("sidebar-left");
-    const dx = document.getElementById("sidebar-right");
-
-    const html = dati.filter(x=>x.attivo).map(item=>`
-        <div class="card-progetto">
-            <img src="${item.immagine}" alt="IMMAGINE" style="width:100%">
-            <p>${item.descrizione}</p>
-        </div>
-    `).join("");
-
-    if(sx) sx.innerHTML = html;
-    if(dx) dx.innerHTML = html;
-}
-
-async function mostraCategoria(slug){
-    const area = document.getElementById("prodotti-lista");
-    const titolo = document.getElementById("titolo-sezione");
-    titolo.innerText = slug.replace('_', ' ');
-
-    const dati = await caricaJSON(slug);
-    if(!dati) return;
-
-    const lista = dati[slug] || dati.video || dati.archivio_progetti || dati.recensioni || dati.elettronica || dati.restauro || [];
-
-    area.innerHTML = lista.map(item=>`
-        <div class="card-progetto">
-            <h3>${item.titolo || item.attrezzo}</h3>
-            <p>${item.descrizione || ""}</p>
-            <p><i>IMMAGINE: ${item.immagine}</i></p>
-        </div>
-    `).join("");
-}
-
-document.addEventListener("DOMContentLoaded", caricaSidebar);
+// Avvia tutto al caricamento della pagina
+window.onload = caricaSidebars;
