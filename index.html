@@ -4,47 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il Tutto Fai Da Te</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>IL TUTTO FAI DA TE</h1>
-</header>
+    <div class="main-container">
+        <aside id="sidebar-left"></aside>
 
-<nav class="menu-top">
-    <button onclick="mostraCategoria('elettronica')">elettronica</button>
-    <button onclick="mostraCategoria('restauro')">restauro</button>
-    <button onclick="mostraCategoria('recensioni_attrezzi')">recensioni</button>
-    <button onclick="mostraCategoria('deposito_progetti')">progetti</button>
-    <button onclick="mostraCategoria('libri')">libri</button>
-</nav>
+        <main class="video-grid" id="main-video-container">
+            </main>
 
-<div class="layout">
-    <aside class="sidebar-left" id="sidebar-left"></aside>
-    <main>
-        <h2 id="titolo-sezione">Benvenuto nel Laboratorio</h2>
-        <div id="prodotti-lista">
-            <p>Seleziona una categoria dal menu per iniziare.</p>
-        </div>
-    </main>
-    <aside class="sidebar-right" id="sidebar-right"></aside>
-</div>
-
-<div id="chat-toggle">🤖</div>
-<div id="chat-box" class="chat-chiusa">
-    <div id="chat-header">
-        Assistente Angelo
-        <span onclick="toggleChat()" style="float:right;cursor:pointer;">x</span>
+        <aside id="sidebar-right"></aside>
     </div>
-    <div id="chat-messages"></div>
-    <div id="chat-input-area">
-        <input type="text" id="chat-input" placeholder="Scrivi libri o restauro...">
-        <button onclick="inviaMessaggio()">Invia</button>
-    </div>
-</div>
 
-<script src="chatbot/chatbot.js"></script>
+    <footer class="footer-home">
+        <a href="index.html">🏠 Clicca qui per tornare alla Home</a>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
