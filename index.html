@@ -3,110 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Tutto Fai Da Te | Angelo Cacioppo</title>
+    <title>Il Tutto Fai Da Te</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Rinforzo lo stile per essere sicuro che si veda bene */
-        .sidebar-right { width: 250px; min-height: 200px; float: right; padding: 10px; }
-        .riquadro-custom { background: #f9f9f9; border: 1px solid #ddd; margin-bottom: 20px; padding: 10px; border-radius: 8px; text-align: center; }
-        .riquadro-custom img { max-width: 100%; height: auto; border-radius: 5px; }
-        .card-progetto { background: white; border-left: 5px solid #003366; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
-    </style>
+    <script defer src="js/script.js"></script>
 </head>
 <body>
 
-    <header><div class="logo-centrale">IL TUTTO FAI DA TE</div></header>
+<header>
+    <h1>IL TUTTO FAI DA TE</h1>
+</header>
 
-    <nav class="sidebar-left">
-        <div class="menu-section">
-            <a href="index.html" class="nav-icon"><i class="fas fa-home"></i> <span>Home</span></a>
-            <div class="nav-item-dropdown">
-                <a href="#" class="nav-icon"><i class="fas fa-play-circle"></i> <span>Video</span></a>
-                <div class="dropdown-content">
-                    <a href="javascript:void(0)" onclick="mostraCategoria('elettronica')">Video Elettronica</a>
-                    <a href="javascript:void(0)" onclick="mostraCategoria('restauro')">Restauro</a>
-                    <a href="javascript:void(0)" onclick="mostraCategoria('recensioni_attrezzi')">Recensioni Attrezzi</a>
-                    <a href="javascript:void(0)" onclick="mostraCategoria('deposito_progetti')">Deposito Progetti</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<nav class="menu-top">
+    <button onclick="mostraCategoria('elettronica')">elettronica</button>
+    <button onclick="mostraCategoria('restauro')">restauro</button>
+    <button onclick="mostraCategoria('recensioni_attrezzi')">recensioni</button>
+    <button onclick="mostraCategoria('deposito_progetti')">progetti</button>
+</nav>
 
-    <div class="carosello-container">
-        <div class="slider-track" id="track-libri">
-            <p style="padding:20px;">Caricamento libri...</p>
-        </div>
-    </div>
-
-    <main class="main-layout">
-        <section class="content-left">
-            <h1 id="titolo-sezione">Benvenuti nel Laboratorio</h1>
-            <div id="prodotti-lista">
-                <p>Seleziona una categoria dal menu per vedere i video.</p>
-            </div>
-        </section>
-
-        <aside class="sidebar-right" id="sidebar-sticky-container">
-            </aside>
+<div class="layout">
+    <aside class="sidebar-left" id="sidebar-left"></aside>
+    <main>
+        <h2 id="titolo-sezione">contenuti</h2>
+        <div id="prodotti-lista"></div>
     </main>
+    <aside class="sidebar-right" id="sidebar-right"></aside>
+</div>
 
-    <script>
-        async function caricaDati(url) {
-            try {
-                const r = await fetch(url + '?v=' + Date.now());
-                return r.ok ? await r.json() : null;
-            } catch (e) { return null; }
-        }
+<div id="chat-toggle">🤖</div>
+<div id="chat-box" class="chat-chiusa">
+    <div id="chat-header">
+        assistente
+        <span onclick="toggleChat()" style="float:right;cursor:pointer;">x</span>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-input-area">
+        <input type="text" id="chat-input">
+        <button onclick="inviaMessaggio()">invia</button>
+    </div>
+</div>
 
-        async function inizializza() {
-            // Sidebar Destra
-            const datiDX = await caricaDati('sidebar.json');
-            if (datiDX) {
-                document.getElementById('sidebar-sticky-container').innerHTML = datiDX.map(i => `
-                    <div class="riquadro-custom">
-                        <a href="${i.link}" target="_blank">
-                            <img src="${i.immagine}" alt="foto">
-                            <p><b>${i.descrizione}</b></p>
-                        </a>
-                    </div>`).join('');
-            }
-
-            // Libri
-            const datiLibri = await caricaDati('libri.json');
-            if (datiLibri && datiLibri.libri) {
-                document.getElementById('track-libri').innerHTML = datiLibri.libri.map(l => `
-                    <div class="slide-item">
-                        <a href="${l.link}" target="_blank">
-                            <img src="${l.immagine}" alt="libro" style="height:150px; margin:5px;">
-                        </a>
-                    </div>`).join('');
-            }
-        }
-
-        async function mostraCategoria(slug) {
-            const area = document.getElementById('prodotti-lista');
-            area.innerHTML = "<p>Caricamento contenuti...</p>";
-            const dati = await caricaDati(slug + '.json');
-            
-            if (!dati) {
-                area.innerHTML = "<p>Nessun file trovato: " + slug + ".json</p>";
-                return;
-            }
-
-            const lista = Array.isArray(dati) ? dati : (dati[slug] || dati.video || dati.archivio_progetti || dati.recensioni);
-            
-            if (lista) {
-                area.innerHTML = lista.map(item => `
-                    <div class="card-progetto">
-                        <h3>${item.titolo || item.attrezzo || 'Progetto'}</h3>
-                        <p>${item.descrizione || ''}</p>
-                        <a href="${item.link || '#'}" target="_blank" style="color:#cd2121; font-weight:bold;">Apri →</a>
-                    </div>`).join('');
-            }
-        }
-
-        window.onload = inizializza;
-    </script>
+<script src="chatbot/chatbot.js"></script>
 </body>
 </html>
